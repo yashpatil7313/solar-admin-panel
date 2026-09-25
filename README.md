@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Solar Business Admin Panel
 
 A full-stack administrative platform for managing Rooftop Solar (RTS) installations, National Portal subsidy workflows, and consumer document/photograph verification.
@@ -84,3 +85,7 @@ A full-stack administrative platform for managing Rooftop Solar (RTS) installati
 | **National Portal** | `PATCH` | `/api/consumers/:id/national-portal` | Update National Portal status (`Done` or `not Done`) |
 | **Documents** | `POST` | `/api/documents` | Accepts `multipart/form-data` with exact Multer limits |
 | **Documents** | `GET` | `/api/documents/consumer/:consumerId` | Fetch consumer documents and photos |
+=======
+# solar-admin-panel
+Solar Installation &amp; Subsidy Management Admin Panel (React, Tailwind CSS, Node.js, Express, PostgreSQL, Multer).
+>>>>>>> 56ef40d33a279246d1596620a82462c40608cc3b
