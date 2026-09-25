@@ -4,11 +4,15 @@ const path = require('path');
 require('dotenv').config();
 
 // Support both Cloud DATABASE_URL (Neon, Render, Supabase, Railway) and individual DB_* env vars
-const poolConfig = process.env.DATABASE_URL
+const sanitizedDatabaseUrl = process.env.DATABASE_URL
+  ? process.env.DATABASE_URL.replace(/[?&]channel_binding=require/g, '')
+  : null;
+
+const poolConfig = sanitizedDatabaseUrl
   ? {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: sanitizedDatabaseUrl,
       ssl: process.env.DB_SSL === 'false' ? false : { rejectUnauthorized: false },
-      connectionTimeoutMillis: 5000,
+      connectionTimeoutMillis: 15000,
     }
   : {
       host: process.env.DB_HOST || 'localhost',
